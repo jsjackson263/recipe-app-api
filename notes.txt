@@ -6,6 +6,3 @@ docker-compose run app sh -c "python manage.py test"   (run image to run a test)
 docker-compose run app sh -c "python manage.py startapp core"   (create core module)
 
 docker-compose run app sh -c "python manage.py makemigrations core"   (create migrations file for the user profile model)
-docker-compose run app sh -c "python3 manage.py migrate"   (create core - )
-
-python3 manage.py migrate   (run all the migrations in the project)
