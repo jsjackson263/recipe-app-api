@@ -1,12 +1,16 @@
 docker-compose build  (build an image)
-docker-compose run app sh -c "django-admin.py startproject app ."   (run image to create a new django project inside the app folder)
+docker-compose run --rm app sh -c "django-admin.py startproject app ."   (run image to create a new django project inside the app folder)
 
-docker-compose run app sh -c "python manage.py test"   (run image to run a test)
+docker-compose run --rm app sh -c "python manage.py test"   (run image to run a test)
 
-docker-compose run app sh -c "python manage.py startapp core"   (create core module)
+docker-compose run --rm app sh -c "python manage.py startapp core"   (create core module)
 
-docker-compose run app sh -c "python manage.py makemigrations core"   (create migrations file for the user profile model)
+docker-compose run --rm app sh -c "python manage.py makemigrations core"   (create migrations file for the user profile model)
 
-docker-compose run app sh -c "python manage.py createsuperuser"   (create a super user)
+docker-compose run --rm app sh -c "python manage.py createsuperuser"   (create a super user)
 
-docker-compose run --rm app sh -c "python manage.py startapp user"   (create user module)
+docker-compose run --rm app sh -c "python manage.py startapp user"   (create user app)
+
+docker-compose run --rm app sh -c "python manage.py startapp recipe"   (create recipe app)
+
+docker-compose run --rm app sh -c "python manage.py makemigrations"   (create migrations file whenver model is updated)
