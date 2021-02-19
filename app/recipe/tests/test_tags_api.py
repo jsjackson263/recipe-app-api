@@ -1,7 +1,7 @@
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.test import TestCase
-import unittest
+# import unittest
 
 from rest_framework import status
 from rest_framework.test import APIClient
@@ -49,7 +49,6 @@ class PrivateTagsApiTests(TestCase):
         self.assertEqual(res.status_code, status.HTTP_200_OK)
         self.assertEqual(res.data, serializer.data)
 
-    # @unittest.skip("error PrivateTagsApiTests has no attribute 'user'")
     def test_tags_limited_to_user(self):
         """Test that tags returned are for the authenticated user"""
         user2 = get_user_model().objects.create_user(
@@ -66,7 +65,6 @@ class PrivateTagsApiTests(TestCase):
         self.assertEqual(len(res.data), 1)
         self.assertEqual(res.data[0]['name'], tag.name)
 
-    @unittest.skip("getting error PrivateTagsApiTests has no attribute 'user'")
     def test_create_tag_successful(self):
         """Test creating a new tag"""
         payload = {'name': 'Test tag'}
