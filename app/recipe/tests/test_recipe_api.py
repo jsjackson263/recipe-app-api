@@ -106,7 +106,7 @@ class PrivateRecipeApiTests(TestCase):
         self.assertEqual(len(res.data), 1)
         self.assertEqual(res.data, serializer.data)
 
-    @unittest.skip("disabled due to a NoReverseMatch error for url")
+    @unittest.skip("disabled due to a NoReverseMatch error for url -fix later")
     def test_view_recipe_detail(self):
         """Test viewing a recipe detail"""
         recipe = sample_recipe(user=self.user)
@@ -172,7 +172,7 @@ class PrivateRecipeApiTests(TestCase):
         self.assertIn(ingredient1, ingredients)
         self.assertIn(ingredient2, ingredients)
 
-    @unittest.skip("disabled due to a NoReverseMatch error for url")
+    @unittest.skip("disabled due to a NoReverseMatch error for url -fix later")
     def test_partial_update_recipe(self):
         """Test updating a recipe with patch"""
         recipe = sample_recipe(user=self.user)
@@ -189,7 +189,7 @@ class PrivateRecipeApiTests(TestCase):
         self.assertEqual(len(tags), 1)
         self.assertIn(new_tag, tags)
 
-    @unittest.skip("disabled due to a NoReverseMatch error for url")
+    @unittest.skip("disabled due to a NoReverseMatch error for url -fix later")
     def test_full_update_recipe(self):
         """Test updating a recipe with put"""
         recipe = sample_recipe(user=self.user)
@@ -239,7 +239,6 @@ class RecipeImageUploadTests(TestCase):
         self.assertIn('image', res.data)
         self.assertTrue(os.path.exists(self.recipe.image.path))
 
-    # @unittest.skip("disabled due to a NoReverseMatch error for url")
     def test_upload_image_bad_request(self):
         """Test uploading an invalid image"""
         url = image_upload_url(self.recipe.id)
